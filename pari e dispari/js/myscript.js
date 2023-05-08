@@ -1,88 +1,74 @@
 
-//generatore numero random
 
-let numeroRandom = Math.floor(Math.random() * 100) + 1;
-console.log(numeroRandom);
+//pari o dispari
 
-//piú numeri random
+// utente sceglie pari o dispari
 
-for (let index = 0; index < 10; index++) {
+let userScelta = prompt('scrivi pari o dispari').toLocaleLowerCase();
+console.log(`hai scelto ${userScelta}`);
 
-    //let numeroRandom = Math.floor(Math.random() * 100) + 1;
-    let numeroRandom = Math.floor(Math.random() * (100 - 1)) + 1;
-    
-    console.log(numeroRandom);
-    
-}
+//utente sceglie un numero da 1 a 5
+
+let userNumber = parseInt(prompt('scegli un numero da 1 a 5'));
+console.log("il tuo numero é ", userNumber);
 
 
-//genero con la funzione
+//genero un numero da 1 a 5 per il computer
 
-const newRandomNum = genraNumeroRandom(50, 100);
+let pcNumber = generaNumeroMaxEscluso(1, 6);
 
-console.log("numero random esterno al for ", newRandomNum);
+console.log("numero del pc: ", pcNumber);
+
+//sommo i numeri
+
+let sommaNumeri = somma(userNumber, pcNumber);
+console.log("somma: ", sommaNumeri);
+
+//valuto se é pari o dispari
+
+let risultato = controllaPariDispari(sommaNumeri);
+console.log(`la somma dei due numeri é ${risultato}`);
+
+//dichiaro chi ha vinto
+
+let dichiaroVincitore = vincitore(risultato, userScelta);
+
+console.log(dichiaroVincitore);
 
 
 //function HELPER
 
-function genraNumeroRandom(min, max) {
+function generaNumeroMaxEscluso(min, max) {
 
-    let newRandomNumLocal = Math.floor(Math.random() * (max - min)) + min;
-    return newRandomNumLocal;
+    let newRandom= Math.floor(Math.random() * (max - min)) + min;
+    return newRandom;
 }
 
 
-//prendere un numero imput da user
-const inputUtente = parseInt(prompt("inserisci il numero"));
+function somma(a, b) {
+    let somma = a + b;
 
-//controllo dire se é pari o dispari
-
-if(inputUtente % 2 === 0) {
-    console.log("è pari");
-}else{
-    console.log("è dispari");
+    return somma;
 }
 
 
-//con funzione
 
-controllaNumeroPariDispari(inputUtente)
-
-// funzioni
-
-function controllaNumeroPariDispari(numeroArg) {
+function controllaPariDispari(numero) {
     
-    if(numeroArg % 2 === 0) {
-        console.log("è pari");
-    }else{
-        console.log("è dispari");
-    }
-
-}
-
-
-//oppure
-
-function controllaNumeroPariDispari(numeroArg) {
-    //creo una variabile locale
-    let risultato = 'dispari';
-
-    if(numeroArg % 2 === 0) {
-        risultato = 'pari';
-    }
-
-    return risultato
-
-}
-
-//oppure
-
-function controllaNumeroPariDispari(numeroArg) {
-    
-    if(numeroArg % 2 === 0) {
+    if(numero % 2 === 0) {
         return 'pari';
     }else{
         return 'dispari';
     }
 
+}
+
+function vincitore(risultato, scelta) {
+
+    if(risultato === scelta){
+        return 'Hai vinto!';
+    }else{
+        return 'Hai perso!';
+    }
+    
 }
