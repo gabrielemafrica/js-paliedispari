@@ -1,11 +1,45 @@
-.active{
-    color: blueviolet;
-    border-bottom: 2px solid gray;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.male{
-    color: lightblue;
+body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-.female{
-    color: pink;
+
+#container{
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 100px;
+}
+
+h1{
+    margin-bottom: 40px;
+}
+
+.number, .pari{
+    margin-bottom: 30px;
+}
+
+button{
+    background-color: lightgreen;
+    margin: 20px;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: green;
+}
+
+button:active{
+    background-color: #fff;
+    border: 1px solid green;
+}
+
+.red{
+    color: red;
 }
