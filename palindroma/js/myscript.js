@@ -88,12 +88,12 @@ button.addEventListener(
 
 function parolaReverse(stringa) {
     //variabile
-    let newStringa = "";
+    let stringaReverse = "";
 
     //ciclo le lettere della parola al contrario
     for (let index = stringa.length - 1; index >= 0; index--) {
 
-        newStringa += stringa[index];   
+        stringaReverse += stringa[index];   
     }
-    return newStringa;
+    return stringaReverse;
 }
